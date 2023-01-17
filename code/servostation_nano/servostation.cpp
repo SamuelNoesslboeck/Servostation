@@ -38,13 +38,13 @@ namespace servostation
         for (uint8_t i = 0; i < (sizeof(DIG_INPUT_PINS) / sizeof(uint8_t)); i++) {
             digitalWrite(DIG_OUTPUT_PINS[i], (val >> i) & 0x01);
         }
-
+        
         dig_out_val = val;      // Update the static variable
     }
 
     void write_status(Status status) {
         digitalWrite(DIG_OUTPUT_PINS[DIG_OUTPUT_STATUS_INDEX], (uint8_t)status);
-
+        
         dig_out_val &= ~(0x01 << DIG_OUTPUT_STATUS_INDEX);
         dig_out_val |= ((uint8_t)status << DIG_OUTPUT_STATUS_INDEX);
     }

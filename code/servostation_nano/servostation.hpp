@@ -1,3 +1,8 @@
+/**
+ * Servostation - Library header file
+*/  
+
+
 # pragma once
 
 # include <inttypes.h>
@@ -27,6 +32,13 @@ namespace servostation
         const uint8_t DIG_OUTPUT_STATUS_INDEX = 0; 
         /** Index of the direction output pin in the DIG_OUTPUT_PINS constant */
         const uint8_t DIG_OUTPUT_DIR_INDEX = 0; 
+
+        const uint8_t SERVO_PINS[] = {
+            0, 
+            1,
+            2,
+            3
+        };
     // 
 
     // Statics
@@ -59,6 +71,7 @@ namespace servostation
     /** Get the current digital output being written */
     uint8_t get_dig_output();
 
+
     /** Write the given value val to the digital outputs of the station */
     void write_dig(uint8_t val);
 
@@ -67,4 +80,14 @@ namespace servostation
 
     /** Write the current movement direction to the digital output of the station */
     void write_dir(Direction dir);
+
+
+    /** Converts the analog input signal into an angle */
+    float input_to_angle(int analog);
+
+    /** Converts the angle into an analog output signal */
+    int angle_to_output(float angle);
+
+    /** Writes the analog signal to the given servo */
+    void write_servo(uint8_t index, int analog);
 }
