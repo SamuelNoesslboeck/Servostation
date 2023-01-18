@@ -13,8 +13,14 @@ namespace servostation
         }
 
         // Outputs
-        for (uint8_t i = 0; i < (sizeof(DIG_INPUT_PINS) / sizeof(uint8_t)); i++) {
+        for (uint8_t i = 0; i < (sizeof(DIG_OUTPUT_PINS) / sizeof(uint8_t)); i++) {
             pinMode(DIG_OUTPUT_PINS[i], OUTPUT);
+        }
+
+        for (uint8_t i = 0; i < (sizeof(SERVO_PINS) / sizeof(uint8_t)); i++) {
+            if (!servos[i].attached()) {
+                servos[i].attach(SERVO_PINS[i]);
+            }
         }
 
         return 0;   // Done without erros
@@ -33,6 +39,7 @@ namespace servostation
     uint8_t get_dig_output() {
         return dig_out_val;
     }
+
 
     void write_dig(uint8_t val) {
         for (uint8_t i = 0; i < (sizeof(DIG_INPUT_PINS) / sizeof(uint8_t)); i++) {
@@ -54,5 +61,15 @@ namespace servostation
 
         dig_out_val &= ~(0x01 << DIG_OUTPUT_DIR_INDEX);
         dig_out_val |= ((uint8_t)dir << DIG_OUTPUT_DIR_INDEX);
+    }
+
+    
+    int read_analog_ang() {
+        int input = analogRead(ANALOG_INPUT_PIN); 
+        return map(input, 0, 1023, 0, 180); 
+    }
+
+    void write_servo(uint8_t index, int angle) {
+        servos[index].write(angle);
     }
 }

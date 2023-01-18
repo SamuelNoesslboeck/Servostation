@@ -17,6 +17,7 @@
             "includePath": [
                 "D:\\Program Files\\Arduino\\hardware\\arduino\\avr\\cores\\arduino",
                 "D:\\Program Files\\Arduino\\hardware\\arduino\\avr\\variants\\eightanaloginputs",
+                "D:\\Program Files\\Arduino\\libraries\\Servo\\src",
                 "d:\\program files\\arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include",
                 "d:\\program files\\arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include-fixed",
                 "d:\\program files\\arduino\\hardware\\tools\\avr\\avr\\include"

@@ -2,10 +2,11 @@
  * Servostation - Library header file
 */  
 
-
 # pragma once
 
 # include <inttypes.h>
+# include <Servo.h>
+# include <Arduino.h>
 
 /** All constants and functions for the servostation */
 namespace servostation
@@ -13,19 +14,21 @@ namespace servostation
     // Constants
         /** Pins of digital inputs */
         const uint8_t DIG_INPUT_PINS[] = {
-            0,      // TODO insert correct pin values
-            1,
-            2,
-            3
+            2,      // TODO insert correct pin values
+            3,
+            4,
+            5
         };
 
         /** Pin of analog input pin */
-        const uint8_t ANALOG_INPUT_PIN = 0;
+        const uint8_t ANALOG_INPUT_PIN = A7;
 
-        /** Pin of digital outputs */
+        /** Pins of digital outputs */
         const uint8_t DIG_OUTPUT_PINS[] = {
-            0,
-            1
+            6,
+            7,
+            8,
+            9
         };
 
         /** Index of the status output pin in the DIG_OUTPUT_PINS constant */
@@ -33,17 +36,21 @@ namespace servostation
         /** Index of the direction output pin in the DIG_OUTPUT_PINS constant */
         const uint8_t DIG_OUTPUT_DIR_INDEX = 0; 
 
+        /** Pins of analog output for the servo motors */
         const uint8_t SERVO_PINS[] = {
-            0, 
-            1,
-            2,
-            3
+            A0, 
+            A1,
+            A2,
+            A3
         };
     // 
 
     // Statics
         /** The current digital output value written to the pins */
         static uint8_t dig_out_val = 0;
+
+        /** The servo controll classes */
+        static Servo servos[sizeof(SERVO_PINS) / sizeof(uint8_t)];
     //
 
     // Enums
@@ -81,13 +88,9 @@ namespace servostation
     /** Write the current movement direction to the digital output of the station */
     void write_dir(Direction dir);
 
-
-    /** Converts the analog input signal into an angle */
-    float input_to_angle(int analog);
-
-    /** Converts the angle into an analog output signal */
-    int angle_to_output(float angle);
+    /** Read the analog value being written to the arduino nano and convert it into an angle */
+    int read_analog_ang();
 
     /** Writes the analog signal to the given servo */
-    void write_servo(uint8_t index, int analog);
+    void write_servo(uint8_t index, int angle);
 }
