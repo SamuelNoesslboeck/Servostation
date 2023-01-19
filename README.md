@@ -14,3 +14,6 @@ Client:         **Gregor Nösslböck**
 Institution:    **HTL Neufelden**
 
 ## Components
+
+## Summary
+
