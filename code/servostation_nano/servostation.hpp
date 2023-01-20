@@ -8,7 +8,7 @@
 # include <Servo.h>
 # include <Arduino.h>
 
-/** All constants and functions for the servostation */
+/** All constants and functions for the Servostation */
 namespace servostation
 {
     // Constants
