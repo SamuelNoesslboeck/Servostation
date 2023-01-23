@@ -91,6 +91,8 @@ namespace servostation
     /** Read the analog value being written to the arduino nano and convert it into an angle */
     int read_analog_ang();
 
-    /** Writes the analog signal to the given servo */
-    void write_servo(uint8_t index, int angle);
+    /** Writes the analog signal to the given servo 
+     * \returns The angle difference
+    */
+    int write_servo(uint8_t index, int angle);
 }

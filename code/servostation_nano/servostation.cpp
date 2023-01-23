@@ -69,7 +69,11 @@ namespace servostation
         return map(input, 0, 1023, 0, 180); 
     }
 
-    void write_servo(uint8_t index, int angle) {
-        servos[index].write(angle);
+    int write_servo(uint8_t index, int angle) {
+        int delta_angle = angle - servos[index].read();
+        if (abs(delta_angle) > 0) {
+            servos[index].write(angle);
+        }
+        return delta_angle;
     }
 }
