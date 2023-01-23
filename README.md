@@ -17,3 +17,8 @@ Institution:    **HTL Neufelden**
 
 ## Summary
 
+### Electronics
+
+![](./export/img/Electronics_Schematic.PNG)
+
+The electonics consist of three main parts, the input/output panels, the arduino nano (the main processor) and the opto-isolator boards.
