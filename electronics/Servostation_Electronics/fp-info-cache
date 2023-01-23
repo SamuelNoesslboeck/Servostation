@@ -1,4 +1,4 @@
-393430698849385
+396143967451983
 Package_DIP
 DIP-4_W7.62mm
 4-lead though-hole mounted DIP package, row spacing 7.62 mm (300 mils)
@@ -50,6 +50,13 @@ THT DIP DIL PDIP 2.54mm 10.16mm 400mil
 4
 Package_DIP
 DIP-4_W10.16mm_LongPads
+4-lead though-hole mounted DIP package, row spacing 10.16 mm (400 mils), LongPads
+THT DIP DIL PDIP 2.54mm 10.16mm 400mil LongPads
+0
+4
+4
+Package_DIP
+DIP-4_W10.16mm_LongPads_Bigger
 4-lead though-hole mounted DIP package, row spacing 10.16 mm (400 mils), LongPads
 THT DIP DIL PDIP 2.54mm 10.16mm 400mil LongPads
 0
